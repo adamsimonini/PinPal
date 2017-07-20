@@ -1,0 +1,26 @@
+.red{
+  background-color: red;
+  color: white;
+}
+
+.orange{
+  background-color: orange;
+  color: white;
+}
+
+.btn{
+  opacity: 0.8;
+}
+.btn:hover{
+  opacity: 1;
+  color: white;
+}
+
+.btn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#sequence{
+  color: black;
+}
