@@ -62,6 +62,8 @@ $(document).ready(function(){
   $('#restart').on("click", function(){
     $("#submit").addClass("unsubmitted");
     clearValues();
+    success = 0;
+    $("#successContainer").addClass("hidden");
     console.log(compareArray);
     console.log(initialArray);
   });
