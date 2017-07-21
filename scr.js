@@ -4,9 +4,13 @@ $(document).ready(function(){
   var pin = [];
   var compareArray = [];
   var numArray = ["1","2","3","4","5","6","7","8","9","*","0","#"]
+  var success = 0;
 
   function compare(a,b){
     if(a.toString() == b.toString()){
+      $("#successContainer").removeClass("hidden");
+      success++;
+      document.getElementById("success").innerHTML = success;
       return true
     }else{
       return false;
@@ -29,9 +33,6 @@ $(document).ready(function(){
       initialArray.push($(this).attr('id'));
       document.getElementById("sequence").innerHTML = initialArray.join(' ').toString();
     }else{
-      if($("#submit").hasClass("unsubmitted") && compareArray.length !== 0){
-        document.getElementById("submit").removeClass("disabled");
-      }
       compareArray.push($(this).attr('id'));
       document.getElementById("sequence").innerHTML = compareArray.join(' ').toString();
     }
@@ -47,17 +48,19 @@ $(document).ready(function(){
       pin = initialArray;
       console.log(pin);
       $("#submit").removeClass("unsubmitted");
-      $("#submit").addClass("disabled");
       clearValues();
     }else if (compareArray.length > 0){
       console.log(pin);
       console.log(compareArray);
-      alert(compare(pin, compareArray));
+      if(compare(pin, compareArray) === true){
+        clearValues()
+        $("#submit").addClass("unsubmitted");
+      }
     }
-
   });
+
   $('#restart').on("click", function(){
-    $("#submit").removeClass("disabled");
+    $("#submit").addClass("unsubmitted");
     clearValues();
     console.log(compareArray);
     console.log(initialArray);
