@@ -42,55 +42,22 @@
 
     <h1 class="text-center">Pin Pal</h1>
     <br />
+<!-- Where Dymanically Created Keypad Will Reside -->
     <div class="container text-center">
-      <div class="row">
-        <div class="col-xs-4">
-          <button id="1" type="button" class="btn numButton btn-block btn-lg">1</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="2" type="button" class="btn numButton btn-lg btn-block">2</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="3" type="button" class="btn numButton btn-lg btn-block">3</button>
-        </div>
+      <div id="row1" class="row">
       </div>
-      <br />
-      <div class="row">
-        <div class="col-xs-4">
-          <button id="4" type="button" class="btn numButton btn-lg btn-block">4</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="5" type="button" class="btn numButton btn-lg btn-block">5</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="6" type="button" class="btn numButton btn-lg btn-block">6</button>
-        </div>
+          <br />
+      <div id="row2" class="row">
       </div>
-      <br />
-      <div class="row">
-        <div class="col-xs-4">
-          <button id="7" type="button" class="btn numButton btn-lg btn-block">7</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="8" type="button" class="btn numButton btn-lg btn-block">8</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="9" type="button" class="btn numButton btn-lg btn-block">9</button>
-        </div>
+          <br />
+      <div id="row3" class="row">
       </div>
-      <br />
-      <div class="row">
-        <div class="col-xs-4">
-          <button id="*" type="button" class="btn numButton btn-lg btn-block">*</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="0" type="button" class="btn numButton btn-lg btn-block">0</button>
-        </div>
-        <div class="col-xs-4">
-          <button id="#" type="button" class="btn numButton btn-lg btn-block">#</button>
-        </div>
+          <br />
+      <div id="row4" class="row">
       </div>
     </div>
+
+
   <br />
   <!--  Submit Button and Live Feedback-->
   <div class="container text-center">
@@ -107,7 +74,7 @@
         <button id="restart" type="button" class="btn btn-lg btn-danger btn-block">Restart</button>
       </div>
       <div class="col-md-4 col-sm-12">
-        <h2>Difficulty</h2>
+        <p>Difficulty</p>
       </div>
     </div>
   </div>
@@ -116,9 +83,10 @@
     <div class="row">
       <div class="col-xs-12">
         <p>Successes</p>
-        <p id=success>
-
-        </p>
+        <p id=success></p>
+      </div>
+    </div>
+  </div>
 
   </body>
 
