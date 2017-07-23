@@ -35,3 +35,31 @@ p{
 h1{
   font-size: 5em;
 }
+
+/*ANIMATIONS*/
+.fallDown {
+  animation: fallDown .7s linear, fadeIn .4s ease-in;
+}
+
+@keyframes fallDown{
+  0% {
+    transform: translateY(400px);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform: translateY(-50px);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: translateY(10px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes fadeIn{
+  from {opacity:0;}
+  to {opacity:1;}
+}

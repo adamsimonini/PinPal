@@ -74,7 +74,7 @@ function clearValues(){
         newKey.id = array[k];
         newKey.setAttribute("class", "col-xs-4");
         newKey.innerHTML = '<button id="' + array[k] +
-        '" type="button" class="btn numButton btn-block btn-lg">' +
+        '" type="button" class="btn numButton btn-block btn-lg fallDown">' +
         (!isNaN(parseInt(array[k])) ? array[k] : specialCharacter(array[k])) + '</button>';
         $(currentRow).append(newKey);
         k++;
@@ -125,4 +125,7 @@ function clearValues(){
   });
 
   generateGrid(numArray);
+
+  // SLIDER
+
 });
