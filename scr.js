@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
-  var initialArray = [];
-  var pin = [];
-  var compareArray = [];
-  var success = 0;
-  const numArray = ["1","2","3","4","5","6","7","8","9","asterisk","0","pound"];
-  const numArray2 = ["1","2","3","4","5","6","7","8","9","asterisk","0","pound"];
-
+  let initialArray = [];
+  let pin = [];
+  let compareArray = [];
+  let success = 0;
+  const numArray =   ["1","2","3","4","5","6","7","8","9","asterisk","0","pound"];
+  const numArray2 =  ["1","2","3","4","5","6","7","8","9","asterisk","0","pound"];
+  const colourArray = ["red","orange","yellow","green","blue","purple","navy","maroon","lime","teal","gray","olive"]
 
   // Remove all dynamically generated divs;
   function clearDivs(){
@@ -47,17 +47,33 @@ function clearValues(){
     character === "asterisk" ? found = "*" : found = "#";
     return found;
   }
-  //Add listened to Divs, each time they are dynamically created
+  //Add listeners to Divs each time they are dynamically created
   function addClickResponse(){
     var numberButtons = document.getElementsByClassName("numButton");
 
     var addListeners = function() {
       if($("#submit").hasClass("unsubmitted")){
-        initialArray.push($(this).attr('id'));
-        document.getElementById("sequence").innerHTML = initialArray.join(' ').toString();
+        if(($(this).attr('id')) == "asterisk"){
+          initialArray.push("*");
+          document.getElementById("sequence").innerHTML = initialArray.join(' ').toString();
+        }else if(($(this).attr('id')) == "pound"){
+          initialArray.push("#");
+          document.getElementById("sequence").innerHTML = initialArray.join(' ').toString();
+        }else{
+          initialArray.push($(this).attr('id'));
+          document.getElementById("sequence").innerHTML = initialArray.join(' ').toString();
+        }
       }else{
-        compareArray.push($(this).attr('id'));
-        document.getElementById("sequence").innerHTML = compareArray.join(' ').toString();
+        if(($(this).attr('id')) == "asterisk"){
+          initialArray.push("*");
+          document.getElementById("sequence").innerHTML = compareArray.join(' ').toString();
+        }else if(($(this).attr('id')) == "pound"){
+          initialArray.push("#");
+          document.getElementById("sequence").innerHTML = compareArray.join(' ').toString();
+        }else{
+          compareArray.push($(this).attr('id'));
+          document.getElementById("sequence").innerHTML = compareArray.join(' ').toString();
+        }
       }
     };
     for (var i = 0; i < numberButtons.length; i++) {
@@ -65,13 +81,22 @@ function clearValues(){
     }
   }
 
+  function addColours(){
+      let randomColours = FisherYatesShuffle(colourArray);
+      document.getElementById("asterisk").setAttribute("class", randomColours[10] + " " + "btn numButton btn-block btn-lg fallDown");
+      document.getElementById("pound").setAttribute("class", randomColours[11] + " " + "btn numButton btn-block btn-lg fallDown");
+      for(i=0;i<randomColours.length-2;i++){
+        document.getElementById(i).setAttribute("class", randomColours[i] + " " + "btn numButton btn-block btn-lg fallDown");
+      }
+    }
+
   function generateGrid(array){
     var k = 0;
     for(i=1;i<5;i++){
       var currentRow = $("#row" + i);
       for(j=0;j<3;j++){
         var newKey = document.createElement("div");
-        newKey.id = array[k];
+        newKey.id = "btnDiv" + array[k];
         newKey.setAttribute("class", "col-xs-4");
         newKey.innerHTML = '<button id="' + array[k] +
         '" type="button" class="btn numButton btn-block btn-lg fallDown">' +
@@ -105,11 +130,23 @@ function clearValues(){
       var randomArray = FisherYatesShuffle(numArray);
       clearDivs();
       generateGrid(randomArray);
+      if(document.getElementById("mode").checked){
+        addColours();
+      }
       $("#submit").removeClass("unsubmitted");
       clearValues();
     }else if (compareArray.length > 0){
       if(compare(pin, compareArray) === true){
         clearValues()
+        $("#submit").addClass("unsubmitted");
+      }else{
+        alert("The two pins don't match. Restarting game");
+        clearDivs();
+        clearValues();
+        generateGrid(numArray2);
+        if(document.getElementById("mode").checked){
+          addColours();
+        }
         $("#submit").addClass("unsubmitted");
       }
     }
@@ -122,10 +159,25 @@ function clearValues(){
     success = 0;
     $("#successContainer").addClass("hidden");
     generateGrid(numArray2);
+    if(document.getElementById("mode").checked){
+      addColours();
+    }
   });
 
   generateGrid(numArray);
+// by default add colour
+  if(document.getElementById("mode").checked){
+    addColours();
+  }
 
-  // SLIDER
-
+  // function changeMode(){
+  //   var mode = document.getElementById("mode").getAttribute("data-toggle");
+  //   console.log(mode);
+  //   if(document.getElementById("myCheck").checked === true){
+  //     console.log("fucker");
+  //   }else if(document.getElementById("myCheck").checked === false){
+  //     console.log("mother");
+  //   }
+  // }
+  // document.getElementById("mode").addEventListener("click", changeMode());
 });

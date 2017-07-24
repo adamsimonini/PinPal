@@ -14,11 +14,6 @@
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <!-- JQUERY UI -->
-    <script
-      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-      crossorigin="anonymous"></script>
 
     <!-- Tether JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
@@ -39,8 +34,6 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="style.css" type="text/css" >
-    <!-- JQuery UI -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
   </head>
 
@@ -74,14 +67,13 @@
         </p>
       </div>
       <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="submit" type="button" class="btn btn-lg btn-success btn-block unsubmitted">Submit</button>
+        <button id="submit" type="button" class="nonNum btn btn-lg btn-success btn-block unsubmitted">Submit</button>
       </div>
       <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="restart" type="button" class="btn btn-lg btn-danger btn-block">Restart</button>
+        <button id="restart" type="button" class="nonNum btn btn-lg btn-danger btn-block">Restart</button>
       </div>
       <div class="col-md-4 col-sm-12">
-        <p>Difficulty</p>
-        <div id="slider"></div>
+          <input id="mode" type="checkbox" data-size="large" checked data-toggle="toggle" data-on="Hard" data-off="Easy" data-onstyle="danger" data-offstyle="success">
       </div>
     </div>
   </div>

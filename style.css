@@ -1,12 +1,53 @@
+/*Color Classes*/
 .red{
-  background-color: red;
+  background-color: #FF4136;
+  color: white;
+}
+.orange{
+  background-color: #FF851B;
+  color: white;
+}
+.yellow{
+  background-color: #FFDC00;
+  color: white;
+}
+.green{
+  background-color: #2ECC40;
+  color: white;
+}
+.blue{
+  background-color: #0074D9;
+  color: white;
+}
+.purple{
+  background-color: #B10DC9;
+  color: white;
+}
+.navy{
+  background-color: #001f3f;
+  color: white;
+}
+.maroon{
+  background-color: #85144b;
+  color: white;
+}
+.lime{
+  background-color: #01FF70;
+  color: white;
+}
+.teal{
+  background-color: #39CCCC;
+  color: white;
+}
+.gray{
+  background-color: #AAAAAA;
+  color: white;
+}
+.olive{
+  background-color: #3D9970;
   color: white;
 }
 
-.orange{
-  background-color: orange;
-  color: white;
-}
 
 .btn{
   opacity: 0.8;
@@ -29,11 +70,27 @@ p{
   font-size: 5em;
 }
 
-.btn{
+.numButton{
   font-size: 3em;
+  border: 1em;
 }
 h1{
   font-size: 5em;
+}
+
+.nonNum{
+  margin-bottom: 1em;
+  z-index: 101;
+}
+
+body{
+ background-image: url("WhiteBackground.png");
+ color: black;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ min-height: 800px;
 }
 
 /*ANIMATIONS*/
