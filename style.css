@@ -64,6 +64,7 @@
 
 #sequence{
   color: black;
+  font-size: 2.5em;
 }
 
 p{
@@ -80,7 +81,7 @@ h1{
 
 .nonNum{
   margin-bottom: 1em;
-  z-index: 101;
+  position: relative;
 }
 
 body{

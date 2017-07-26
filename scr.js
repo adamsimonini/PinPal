@@ -170,14 +170,16 @@ function clearValues(){
     addColours();
   }
 
-  // function changeMode(){
-  //   var mode = document.getElementById("mode").getAttribute("data-toggle");
-  //   console.log(mode);
-  //   if(document.getElementById("myCheck").checked === true){
-  //     console.log("fucker");
-  //   }else if(document.getElementById("myCheck").checked === false){
-  //     console.log("mother");
-  //   }
-  // }
-  // document.getElementById("mode").addEventListener("click", changeMode());
+  $('#mode').change(function() {
+      $("#submit").addClass("unsubmitted");
+      clearDivs();
+      clearValues();
+      success = 0;
+      $("#successContainer").addClass("hidden");
+      generateGrid(numArray2);
+      if(document.getElementById("mode").checked){
+        addColours();
+      }
+  })
+
 });
